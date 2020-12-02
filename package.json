@@ -3,7 +3,8 @@
 	"description": "My solution to Advent Of Code 2020",
 	"scripts": {
 		"build": "pnpx tsc",
-		"test": "pnpm run build | pnpx ava --verbose"
+		"preinstall": "npx only-allow pnpm",
+		"test": "pnpx ava --verbose"
 	},
 	"ava": {
 		"typescript": {
