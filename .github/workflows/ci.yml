@@ -13,14 +13,11 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
 
       - name: Install pnpm
         run: npm install -g pnpm
-
-      - name: Prune Extraneous Dependencies
-        run: |
-          pnpm prune
-          pnpm store prune
 
       - name: Cache Dependencies
         uses: actions/cache@v2
@@ -30,8 +27,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
-      - name: Install Dependencies with pnpm
-        run: pnpm install
+      - name: Install Dependencies and Prune Extraneous Dependencies with pnpm
+        run: |
+          pnpm prune
+          pnpm store prune
+          pnpm install
 
       - name: Compile TypeScript
         run: pnpm run build
