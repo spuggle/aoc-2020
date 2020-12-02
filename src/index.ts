@@ -15,7 +15,7 @@ export async function runAllSolutions() {
     const { parse, run } = await import(getAbsolutePath(`./solutions/${solutionFile}`)) as SolutionMethods;
     if (!parse || !run) throw new Error(`Functions for ${solutionDay} not implemented properly!`);
 
-    const rawSolutionInput = readFileSync(getAbsolutePath(`../inputs/${solutionDay}.txt`)).toString("utf8");
+    const rawSolutionInput = readFileSync(getAbsolutePath(`../inputs/${solutionDay}.txt`)).toString("utf8").split("\n");
     const solutionInput = parse(rawSolutionInput);
     const solutionOutput = run(solutionInput);
 
@@ -30,5 +30,5 @@ function getAbsolutePath(relativePath: string) {
 
 interface SolutionMethods<T = unknown> {
   readonly run?: (...args: T[]) => unknown[];
-  readonly parse?: (input: string) => T;
+  readonly parse?: (input: string[]) => T;
 }
