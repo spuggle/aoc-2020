@@ -2,12 +2,10 @@ import { readdirSync, readFileSync } from "fs";
 import * as path from "path";
 import { Benchmark } from "./util/Benchmark.js";
 
-const CURRENT_DIRECTORY = import.meta.url.slice(5);
-
 const solutionFiles = readdirSync(getAbsolutePath("./solutions"))
   .filter(solutionFile => solutionFile.endsWith(".js"));
 
-await runAllSolutions();
+void runAllSolutions();
 
 export async function runAllSolutions() {
   const solutionOutputs: SolutionOutputs = {};
@@ -53,7 +51,7 @@ export async function runAllSolutions() {
 }
 
 function getAbsolutePath(relativePath: string) {
-  return path.join(CURRENT_DIRECTORY, "../", relativePath);
+  return path.join(__dirname, "../", relativePath);
 }
 
 interface SolutionOutputs {
