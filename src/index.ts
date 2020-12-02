@@ -9,6 +9,10 @@ const solutionFiles = readdirSync(getAbsolutePath("./solutions"))
 await runAllSolutions();
 
 export async function runAllSolutions() {
+  const solutions: {
+    [K: string]: { part1: unknown; part2: unknown };
+  } = {};
+
   for (const solutionFile of solutionFiles) {
     const [ solutionDay ] = solutionFile.split(".");
 
@@ -19,9 +23,13 @@ export async function runAllSolutions() {
     const solutionInput = parse(rawSolutionInput);
     const solutionOutput = run(solutionInput);
 
-    console.log(`${solutionDay} solutions:`);
-    solutionOutput.forEach((solution, i) => console.log(`    Solution ${i + 1}: `, solution));
+    solutions[solutionDay] = {
+      part1: solutionOutput[0],
+      part2: solutionOutput[1]
+    };
   }
+
+  console.table(solutions);
 }
 
 function getAbsolutePath(relativePath: string) {
