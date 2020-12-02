@@ -1,5 +1,6 @@
 import { readdirSync, readFileSync } from "fs";
 import * as path from "path";
+import { Benchmark } from "./util/Benchmark.js";
 
 const CURRENT_DIRECTORY = import.meta.url.slice(5);
 
@@ -9,34 +10,68 @@ const solutionFiles = readdirSync(getAbsolutePath("./solutions"))
 await runAllSolutions();
 
 export async function runAllSolutions() {
-  const solutions: {
-    [K: string]: { part1: unknown; part2: unknown };
-  } = {};
+  const solutionOutputs: SolutionOutputs = {};
 
   for (const solutionFile of solutionFiles) {
     const [ solutionDay ] = solutionFile.split(".");
 
-    const { parse, run } = await import(getAbsolutePath(`./solutions/${solutionFile}`)) as SolutionMethods;
-    if (!parse || !run) throw new Error(`Functions for ${solutionDay} not implemented properly!`);
+    const {
+      parse,
+      ...problemSolutions
+    } = await import(getAbsolutePath(`./solutions/${solutionFile}`)) as SolutionMethods;
+
+    const solutions = Object.entries(problemSolutions)
+      .filter(([ solutionName ]) => solutionName.startsWith("part")) as [ "partOne" | "partTwo", ProblemFunction ][];
+
+    if (!parse || !solutions.length) throw new Error(`Functions for ${solutionDay} not implemented properly!`);
 
     const rawSolutionInput = readFileSync(getAbsolutePath(`../inputs/${solutionDay}.txt`)).toString("utf8").split("\n");
     const solutionInput = parse(rawSolutionInput);
-    const solutionOutput = run(solutionInput);
 
-    solutions[solutionDay] = {
-      part1: solutionOutput[0],
-      part2: solutionOutput[1]
-    };
+    solutionOutputs[solutionDay] = solutions.reduce<SolutionOutputs[string]>(
+      (solutionOutput, [ solutionName, solution ]) => {
+        const solutionBenchmark = new Benchmark();
+
+        solutionBenchmark.start();
+        const answer = solution(solutionInput);
+        solutionBenchmark.stop();
+
+        solutionOutput[solutionName] = {
+          answer,
+          timeTaken: solutionBenchmark.display()
+        };
+
+        return solutionOutput;
+      }, {
+        partOne: { answer: null, timeTaken: "" },
+        partTwo: { answer: null, timeTaken: "" }
+      }
+    );
   }
 
-  console.table(solutions);
+  console.table(solutionOutputs);
 }
 
 function getAbsolutePath(relativePath: string) {
   return path.join(CURRENT_DIRECTORY, "../", relativePath);
 }
 
+interface SolutionOutputs {
+  [K: string]: {
+    partOne: PartOutput;
+    partTwo: PartOutput;
+  };
+}
+
+type ProblemFunction<T = unknown> = (...args: T[]) => unknown[];
+
 interface SolutionMethods<T = unknown> {
-  readonly run?: (...args: T[]) => unknown[];
+  readonly problemOne?: ProblemFunction<T>;
+  readonly problemTwo?: ProblemFunction<T>;
   readonly parse?: (input: string[]) => T;
+}
+
+interface PartOutput {
+  answer: unknown;
+  timeTaken: string;
 }
