@@ -1,13 +1,6 @@
 const PASSWORD_REGEX = /(\d+)-(\d+) (\w): (\w+)/u;
 
-export function run(passwordDetails: PasswordDetails) {
-  return [
-    problem1(passwordDetails),
-    problem2(passwordDetails)
-  ];
-}
-
-function problem1(passwordDetails: PasswordDetails) {
+export function partOne(passwordDetails: PasswordDetails): number {
   let validPasswords = 0;
 
   for (const [ lowerBound, higherBound, policyLetter, password ] of passwordDetails) {
@@ -19,7 +12,7 @@ function problem1(passwordDetails: PasswordDetails) {
   return validPasswords;
 }
 
-function problem2(passwordDetails: PasswordDetails) {
+export function partTwo(passwordDetails: PasswordDetails): number {
   let validPasswords = 0;
 
   for (const [ lowerBound, higherBound, policyLetter, password ] of passwordDetails) {
