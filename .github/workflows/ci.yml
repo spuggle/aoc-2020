@@ -27,11 +27,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
-      - name: Install Dependencies and Prune Extraneous Dependencies with pnpm
-        run: |
-          pnpm prune
-          pnpm store prune
-          pnpm install
+      - name: Install Dependencies with pnpm
+        run: pnpm install
 
       - name: Compile TypeScript
         run: pnpm run build
@@ -41,3 +38,73 @@ jobs:
         with:
           name: dist
           path: dist
+
+  test:
+    name: Test Project
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Git Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install Dependencies with pnpm
+        run: pnpm install
+
+      - name: Compile TypeScript
+        run: pnpm run build
+
+      - name: Run Tests
+        run: pnpm run test
+
+      - name: Submit CodeCov Test Coverage
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          verbose: true
+          fail_ci_if_error: true
+
+  clean:
+    name: Clean Installed Dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Git Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install Dependencies and Prune Extraneous Dependencies with pnpm
+        run: |
+          pnpm prune
+          pnpm store prune
+          pnpm install
