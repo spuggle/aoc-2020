@@ -1,19 +1,19 @@
 export function run(inputNumbers: number[]) {
   return [
-    problem_1(inputNumbers),
-    problem_2(inputNumbers)
+    problem1(inputNumbers),
+    problem2(inputNumbers)
   ]
     .map(soluction => soluction.reduce((product, num) => product * num));
 }
 
-export function problem_1(inputNumbers: number[]): number[] {
+export function problem1(inputNumbers: number[]): number[] {
   const selectedNumbers = getSumTo(2020, inputNumbers);
   if (!selectedNumbers) throw new Error("No solution found!");
 
   return selectedNumbers;
 }
 
-export function problem_2(inputNumbers: number[]): number[] {
+export function problem2(inputNumbers: number[]): number[] {
   for (const inputNumber of inputNumbers) {
     const remainingValue = 2020 - inputNumber;
 
@@ -35,8 +35,7 @@ function getSumTo(totalValue: number, inputNumbers: number[]): number[] | undefi
   }
 }
 
-export function parse(input: string) {
+export function parse(input: string[]) {
   return input
-    .split("\n")
     .map(num => parseInt(num, 10));
 }
