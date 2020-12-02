@@ -1,8 +1,22 @@
 {
 	"name": "aoc-2020",
 	"description": "My solution to Advent Of Code 2020",
-	"type": "module",
+	"scripts": {
+		"build": "pnpx tsc",
+		"test": "pnpm run build | pnpx ava --verbose"
+	},
+	"ava": {
+		"typescript": {
+			"extensions": [
+				"ts"
+			],
+			"rewritePaths": {
+				"src/": "dist/"
+			}
+		}
+	},
 	"devDependencies": {
+		"@ava/typescript": "^1.1.1",
 		"@types/node": "^14.14.10",
 		"@typescript-eslint/eslint-plugin": "^4.9.0",
 		"@typescript-eslint/parser": "^4.9.0",
