@@ -7,5 +7,5 @@
 			"updateTypes": ["patch"]
 		}
   ],
-  "semanticComments": true
+  "semanticCommits": true
 }
