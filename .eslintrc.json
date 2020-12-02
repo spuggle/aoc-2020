@@ -22,8 +22,7 @@
         "project": "./tsconfig.json"
       },
       "plugins": [
-        "@typescript-eslint",
-        "simple-import-sort"
+        "@typescript-eslint"
       ],
       "extends": [
         "plugin:@typescript-eslint/eslint-recommended"
@@ -246,7 +245,6 @@
         "quotes": "off",
         "require-await": "off",
         "semi": "off",
-        "simple-import-sort/sort": "error",
         "sort-imports": "off",
         "space-before-function-paren": "off"
       }
