@@ -1,5 +1,11 @@
 {
-  "extends": [
-    "config:base"
-  ]
+  "extends": [ "config:base" ],
+  "labels": [ "dependencies" ],
+  "packageRules": [
+		{
+			"automerge": true,
+			"updateTypes": ["patch"]
+		}
+  ],
+  "semanticComments": true
 }
