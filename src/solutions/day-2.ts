@@ -37,4 +37,4 @@ export function parse(inputs: string[]): PasswordDetails {
     });
 }
 
-type PasswordDetails = [ number, number, string, string ][];
+export type PasswordDetails = [ number, number, string, string ][];
