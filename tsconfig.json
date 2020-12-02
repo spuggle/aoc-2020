@@ -4,7 +4,7 @@
       "ESNEXT"
     ],
     "target": "ESNEXT",
-    "module": "ESNEXT",
+    "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": false,
     "outDir": "./dist",
