@@ -21,7 +21,7 @@ export function problem2(inputNumbers: number[]): number[] {
     if (inputNumbers.includes(remainingValue) && inputNumberSum) return [ remainingValue, ...inputNumberSum ];
 
     const remainingValueSum = getSumTo(remainingValue, inputNumbers);
-    if (inputNumbers.includes(inputNumber) && remainingValueSum) return [ inputNumber, ...remainingValueSum ]
+    if (inputNumbers.includes(inputNumber) && remainingValueSum) return [ inputNumber, ...remainingValueSum ];
   }
 
   throw new Error("No solution found!");
@@ -37,5 +37,5 @@ function getSumTo(totalValue: number, inputNumbers: number[]): number[] | undefi
 
 export function parse(input: string[]) {
   return input
-    .map(num => parseInt(num, 10));
+    .map(num => Number(num));
 }
