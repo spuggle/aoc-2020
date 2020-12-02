@@ -1,0 +1,43 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Build TypeScript
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Git Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Prune Extraneous Dependencies
+        run: |
+          pnpm prune
+          pnpm store prune
+
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install Dependencies with pnpm
+        run: pnpm install
+
+      - name: Compile TypeScript
+        run: pnpm run build
+
+      - name: Upload Compiled TypeScript
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
