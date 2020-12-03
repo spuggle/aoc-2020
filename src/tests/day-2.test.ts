@@ -10,13 +10,13 @@ test("Parse the input", tester => {
   tester.deepEqual(parseOutput, parsedInput);
 });
 
-test("[Part 1] Find the correct solution", tester => {
+test("[Part 1] Find the correct number of correct passwords", tester => {
   const solution = partOne(parsedInput);
 
   tester.is(solution, 2);
 });
 
-test("[Part 2] Find the correct solution", tester => {
+test("[Part 2] Find the correct number of correct passwords", tester => {
   const solution = partTwo(parsedInput);
 
   tester.is(solution, 1);

@@ -10,14 +10,14 @@ test("Parse the input", tester => {
   tester.deepEqual(parseOutput, parsedInput);
 });
 
-test("[Part 1] Find the correct solution", tester => {
+test("[Part 1] Find the correct numbers and their product", tester => {
   const solution = partOne(parsedInput);
 
   tester.is(solution, 514579);
 });
 
-test("[Part 2] Find the correct solution", tester => {
+test("[Part 2] Find the correct numbers and their product", tester => {
   const solution = partTwo(parsedInput);
 
   tester.is(solution, 241861950);
-})
+});
