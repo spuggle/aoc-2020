@@ -51,7 +51,7 @@ export async function runAllSolutions() {
 }
 
 function getAbsolutePath(relativePath: string) {
-  return path.join(__dirname, "../", relativePath);
+  return path.join(__dirname, relativePath);
 }
 
 interface SolutionOutputs {
