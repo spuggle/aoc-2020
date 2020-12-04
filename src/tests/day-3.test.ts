@@ -13,7 +13,7 @@ const singleInput = `
 #.##...#...
 #...##....#
 .#..#...#.#`
-  .trim().split("\n");
+  .trim();
 
 const repeatedInput = `
 ..##.........##.........##.........##.........##.........##.......
@@ -27,10 +27,10 @@ const repeatedInput = `
 #.##...#...#.##...#...#.##...#...#.##...#...#.##...#...#.##...#...
 #...##....##...##....##...##....##...##....##...##....##...##....#
 .#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#`
-  .trim().split("\n");
+  .trim();
 
-const parsedSingleInput = singleInput.map(row => row.split(""));
-const parsedRepeatedInput = repeatedInput.map(row => row.split(""));
+const parsedSingleInput = singleInput.split("\n").map(row => row.split(""));
+const parsedRepeatedInput = repeatedInput.split("\n").map(row => row.split(""));
 
 test("Parse the repeated input", tester => {
   const parseOutput = parse(repeatedInput);

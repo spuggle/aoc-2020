@@ -1,7 +1,7 @@
 import test from "ava";
 import { PasswordDetails, parse, partOne, partTwo } from "../solutions/day-2.js";
 
-const input = [ "1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc" ];
+const input = "1-3 a: abcde\n1-3 b: cdefg\n2-9 c: ccccccccc";
 const parsedInput: PasswordDetails = [ [ 1, 3, "a", "abcde" ], [ 1, 3, "b", "cdefg" ], [ 2, 9, "c", "ccccccccc" ] ];
 
 test("Parse the input", tester => {
