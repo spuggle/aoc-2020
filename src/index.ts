@@ -23,7 +23,7 @@ export async function runAllSolutions() {
 
     if (!parse || !solutions.length) throw new Error(`Functions for ${solutionDay} not implemented properly!`);
 
-    const rawSolutionInput = readFileSync(getAbsolutePath(`../inputs/${solutionDay}.txt`)).toString("utf8").split("\n");
+    const rawSolutionInput = readFileSync(getAbsolutePath(`../inputs/${solutionDay}.txt`)).toString("utf8");
     const solutionInput = parse(rawSolutionInput);
 
     solutionOutputs[solutionDay] = solutions.reduce<SolutionOutputs[string]>(
@@ -66,7 +66,7 @@ type ProblemFunction<T = unknown> = (...args: T[]) => unknown[];
 interface SolutionMethods<T = unknown> {
   readonly problemOne?: ProblemFunction<T>;
   readonly problemTwo?: ProblemFunction<T>;
-  readonly parse?: (input: string[]) => T;
+  readonly parse?: (input: string) => T;
 }
 
 interface PartOutput {

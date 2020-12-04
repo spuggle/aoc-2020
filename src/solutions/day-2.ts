@@ -28,8 +28,9 @@ export function partTwo(passwordDetails: PasswordDetails): number {
   return validPasswords;
 }
 
-export function parse(inputs: string[]): PasswordDetails {
+export function parse(inputs: string): PasswordDetails {
   return inputs
+    .split("\n")
     .map(input => {
       const [ lowerBound, higherBound, policyLetter, password ] = PASSWORD_REGEX.exec(input)!.slice(1);
 

@@ -36,8 +36,9 @@ function treesEncounteredInSlope([ rightShift, downShift ]: Slope, areaMap: Area
 }
 
 
-export function parse(input: string[]): AreaMap {
+export function parse(input: string): AreaMap {
   return input
+    .split("\n")
     .map(row => row.split(""));
 }
 
