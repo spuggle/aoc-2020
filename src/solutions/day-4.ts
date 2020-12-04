@@ -52,7 +52,7 @@ function getComparerForRange(lowerBound: number, higherBound: number): FieldVali
 }
 
 function getValidatorForPattern(pattern: RegExp): FieldValidator {
-  return (input: string) => !!(pattern.exec(input) || [])[0];
+  return (input: string) => pattern.test(input);
 }
 
 export function parse(input: string): PassportDetails[] {
