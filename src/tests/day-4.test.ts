@@ -1,5 +1,5 @@
 import test from "ava";
-import { parse, partOne, partTwo, PassportDetails } from "../solutions/day-4.js";
+import { parse, partOne, partTwo, PassportDetails } from "../solutions/day-4/day-4.js";
 
 const inputA = `
 ecl:gry pid:860033327 eyr:2020 hcl:#fffffd

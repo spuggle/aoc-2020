@@ -1,5 +1,5 @@
 import test from "ava";
-import { parse, partOne, partTwo } from "../solutions/day-3.js";
+import { parse, partOne, partTwo } from "../solutions/day-3/day-3.js";
 
 const singleInput = `
 ..##.......

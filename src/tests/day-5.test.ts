@@ -1,5 +1,5 @@
 import test from "ava";
-import { partOne, BoardingPass, parse, generateBoardingPass } from "../solutions/day-5";
+import { partOne, BoardingPass, parse, generateBoardingPass } from "../solutions/day-5/day-5";
 
 const input = "BFFFBBFRRR\nFFFBBBFRRR\nBBFFBBFRLL";
 const parsedInput: [ string, string ][] = [
