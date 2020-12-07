@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "lib": [
-      "ESNEXT"
-    ],
+    "lib": [ "ESNEXT" ],
     "target": "ESNEXT",
     "module": "commonjs",
     "moduleResolution": "node",
-    "esModuleInterop": false,
     "outDir": "./dist",
     "rootDir": "./src",
-    "skipLibCheck": true,
+
+    "esModuleInterop": true,
     "inlineSourceMap": true,
+    "skipLibCheck": true,
+
     "strict": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
