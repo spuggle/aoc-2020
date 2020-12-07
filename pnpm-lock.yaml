@@ -1,3 +1,7 @@
+dependencies:
+  '@pizzafox/benchmark': 1.1.0
+  '@pizzafox/util': 1.1.1
+  pretty-ms: 7.0.1
 devDependencies:
   '@ava/typescript': 1.1.1
   '@istanbuljs/nyc-config-typescript': 1.0.1_eba5b3c07efef0636bffdb3ccbf063c6
@@ -6,6 +10,7 @@ devDependencies:
   '@typescript-eslint/parser': 4.9.0_eslint@7.15.0+typescript@4.1.2
   ava: 3.13.0
   eslint: 7.15.0
+  eslint-plugin-unicorn: 23.0.0_eslint@7.15.0
   nyc: 15.1.0
   source-map-support: 0.5.19
   ts-node: 9.1.0_typescript@4.1.2
@@ -263,6 +268,18 @@ packages:
       node: '>= 8'
     resolution:
       integrity: sha512-1V9XOY4rDW0rehzbrcqAmHnz8e7SKvX27gh8Gt2WgB0+pdzdiLV83p72kZPU+jvMbS1qU5mauP2iOvO8rhmurQ==
+  /@pizzafox/benchmark/1.1.0:
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-3m2w/bVq0O8ioYfp0hkul8/eTbgxenOoxrjIgsSXo7ERFuQM7zCxQD3RrS51rLoDhM5Av5pZbHoZyE6TOEddqA==
+  /@pizzafox/util/1.1.1:
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-yLoaB12Ms9kC4E7pUhcTzDb84lLk1MEkX0UPe7T/CKdbEKa5Fp2aeykjzlpVLIP9yrFz04Q53g+NMHj7kttJFg==
   /@sindresorhus/is/0.14.0:
     dev: true
     engines:
@@ -623,6 +640,22 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-yzky+gark5PdsFFlZ4CnBVxm/OgBUWtn9vAsSSnuooVJNOk5ER17HJXVeUzy63LIt06Zy34oThcn+2ZqgMs7SA==
+  /babel-eslint/10.1.0_eslint@7.15.0:
+    dependencies:
+      '@babel/code-frame': 7.10.4
+      '@babel/parser': 7.12.7
+      '@babel/traverse': 7.12.9
+      '@babel/types': 7.12.7
+      eslint: 7.15.0
+      eslint-visitor-keys: 1.3.0
+      resolve: 1.19.0
+    dev: true
+    engines:
+      node: '>=6'
+    peerDependencies:
+      eslint: '>= 4.12.1'
+    resolution:
+      integrity: sha512-ifWaTHQ0ce+448CYop8AdrQiBsGrnC+bMgfyKFdi6EsPLTAWG+QfyDeM6OH+FmWnKvEq5NnBMLvlBUPKQZoDSg==
   /balanced-match/1.0.0:
     dev: true
     resolution:
@@ -764,6 +797,14 @@ packages:
     dev: true
     resolution:
       integrity: sha512-uvzpYrpmidaoxvIQHM+rKSrigjOe9feHYbw4uOI2gdfe1C3xIlxO+kVXq83WQWNniTf8bAxVpy+cQeFQsMERKg==
+  /clean-regexp/1.0.0:
+    dependencies:
+      escape-string-regexp: 1.0.5
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-jffHquUf02h06PjQW5GAvBGj/tc=
   /clean-stack/2.2.0:
     dev: true
     engines:
@@ -1129,6 +1170,38 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
+  /eslint-ast-utils/1.1.0:
+    dependencies:
+      lodash.get: 4.4.2
+      lodash.zip: 4.2.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-otzzTim2/1+lVrlH19EfQQJEhVJSu0zOb9ygb3iapN6UlyaDtyRq4b5U1FuW0v1lRa9Fp/GJyHkSwm6NqABgCA==
+  /eslint-plugin-unicorn/23.0.0_eslint@7.15.0:
+    dependencies:
+      ci-info: 2.0.0
+      clean-regexp: 1.0.0
+      eslint: 7.15.0
+      eslint-ast-utils: 1.1.0
+      eslint-template-visitor: 2.2.1_eslint@7.15.0
+      eslint-utils: 2.1.0
+      import-modules: 2.0.0
+      lodash: 4.17.20
+      pluralize: 8.0.0
+      read-pkg-up: 7.0.1
+      regexp-tree: 0.1.21
+      reserved-words: 0.1.2
+      safe-regex: 2.1.1
+      semver: 7.3.4
+    dev: true
+    engines:
+      node: '>=10'
+    peerDependencies:
+      eslint: '>=7.11.0'
+    resolution:
+      integrity: sha512-Vabo3cjl6cjyhcf+76CdQEY6suOFzK0Xh3xo0uL9VDYrDJP5+B6PjV0tHTYm82WZmFWniugFJM3ywHSNYTi/ZQ==
   /eslint-scope/5.1.1:
     dependencies:
       esrecurse: 4.3.0
@@ -1138,6 +1211,18 @@ packages:
       node: '>=8.0.0'
     resolution:
       integrity: sha512-2NxwbF/hZ0KpepYN0cNbo+FN6XoK7GaHlQhgx/hIZl6Va0bF45RQOOwhLIy8lQDbuCiadSLCBnH2CFYquit5bw==
+  /eslint-template-visitor/2.2.1_eslint@7.15.0:
+    dependencies:
+      babel-eslint: 10.1.0_eslint@7.15.0
+      eslint: 7.15.0
+      eslint-visitor-keys: 1.3.0
+      esquery: 1.3.1
+      multimap: 1.1.0
+    dev: true
+    peerDependencies:
+      eslint: '>=7.0.0'
+    resolution:
+      integrity: sha512-q3SxoBXz0XjPGkUpwGVAwIwIPIxzCAJX1uwfVc8tW3v7u/zS7WXNH3I2Mu2MDz2NgSITAyKLRaQFPHu/iyKxDQ==
   /eslint-utils/2.1.0:
     dependencies:
       eslint-visitor-keys: 1.3.0
@@ -1587,6 +1672,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-vjL3+w0oulAVZ0hBHnxa/Nm5TAurf9YLQJDhqRZyqb+VKGOB6LU8t9H1Nr5CIo16vh9XfJTOoHwU0B71S557gA==
+  /import-modules/2.0.0:
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-iczM/v9drffdNnABOKwj0f9G3cFDon99VcG1mxeBsdqnbd+vnQ5c2uAiCHNQITqFTOPaEvwg3VjoWCur0uHLEw==
   /imurmurhash/0.1.4:
     dev: true
     engines:
@@ -1942,6 +2033,14 @@ packages:
     dev: true
     resolution:
       integrity: sha1-+wMJF/hqMTTlvJvsDWngAT3f7bI=
+  /lodash.get/4.4.2:
+    dev: true
+    resolution:
+      integrity: sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
+  /lodash.zip/4.2.0:
+    dev: true
+    resolution:
+      integrity: sha1-7GZi5IlkCO1KtsVCo5kLcswIACA=
   /lodash/4.17.20:
     dev: true
     resolution:
@@ -2066,6 +2165,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
+  /multimap/1.1.0:
+    dev: true
+    resolution:
+      integrity: sha512-0ZIR9PasPxGXmRsEF8jsDzndzHDj7tIav+JUmvIFB/WHswliFnquxECT/De7GR4yg99ky/NlRKJT82G1y271bw==
   /mute-stream/0.0.8:
     dev: true
     resolution:
@@ -2311,7 +2414,6 @@ packages:
     resolution:
       integrity: sha512-+mi/lmVVNKFNVyLXV31ERiy2CY5E1/F6QtJFEzoChPRwwngMNXRDQ9GJ5WdE2Z2P4AujsOi0/+2qHID68KwfIQ==
   /parse-ms/2.1.0:
-    dev: true
     engines:
       node: '>=6'
     resolution:
@@ -2387,6 +2489,12 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-4UGewrYgqDFw9vV6zNV+ADmPAUAfJPKtGvb/VdpQAx25X5f3xXdGdyOEVFwkl8Hl/tl7+xbeHqSEM+D5/TirUg==
+  /pluralize/8.0.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==
   /prelude-ls/1.2.1:
     dev: true
     engines:
@@ -2402,7 +2510,6 @@ packages:
   /pretty-ms/7.0.1:
     dependencies:
       parse-ms: 2.1.0
-    dev: true
     engines:
       node: '>=10'
     resolution:
@@ -2452,6 +2559,16 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==
+  /read-pkg-up/7.0.1:
+    dependencies:
+      find-up: 4.1.0
+      read-pkg: 5.2.0
+      type-fest: 0.8.1
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==
   /read-pkg/5.2.0:
     dependencies:
       '@types/normalize-package-data': 2.4.0
@@ -2471,6 +2588,11 @@ packages:
       node: '>=8.10.0'
     resolution:
       integrity: sha512-cMhu7c/8rdhkHXWsY+osBhfSy0JikwpHK/5+imo+LpeasTF8ouErHrlYkwT0++njiyuDvc7OFY5T3ukvZ8qmFQ==
+  /regexp-tree/0.1.21:
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha512-kUUXjX4AnqnR8KRTCrayAo9PzYMRKmVoGgaz2tBuz0MF3g1ZbGebmtW0yFHfFK9CmBjQKeYIgoL22pFLBJY7sw==
   /regexpp/3.1.0:
     dev: true
     engines:
@@ -2511,6 +2633,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==
+  /reserved-words/0.1.2:
+    dev: true
+    resolution:
+      integrity: sha1-AKCUD5jNUBrqqsMWQR2a3FKzGrE=
   /resolve-cwd/3.0.0:
     dependencies:
       resolve-from: 5.0.0
@@ -2575,6 +2701,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==
+  /safe-regex/2.1.1:
+    dependencies:
+      regexp-tree: 0.1.21
+    dev: true
+    resolution:
+      integrity: sha512-rx+x8AMzKb5Q5lQ95Zoi6ZbJqwCLkqi3XuJXp5P3rT8OEc6sZCJG5AE5dU3lsgRr/F4Bs31jSlVN+j5KrsGu9A==
   /semver-diff/3.1.1:
     dependencies:
       semver: 6.3.0
@@ -3164,12 +3296,16 @@ packages:
 specifiers:
   '@ava/typescript': 1.1.1
   '@istanbuljs/nyc-config-typescript': 1.0.1
+  '@pizzafox/benchmark': ^1.1.0
+  '@pizzafox/util': ^1.1.1
   '@types/node': 14.14.10
   '@typescript-eslint/eslint-plugin': 4.9.0
   '@typescript-eslint/parser': 4.9.0
   ava: 3.13.0
   eslint: 7.15.0
+  eslint-plugin-unicorn: ^23.0.0
   nyc: 15.1.0
+  pretty-ms: ^7.0.1
   source-map-support: 0.5.19
   ts-node: 9.1.0
   typescript: 4.1.2

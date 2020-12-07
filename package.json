@@ -31,10 +31,16 @@
 		"@typescript-eslint/parser": "4.9.0",
 		"ava": "3.13.0",
 		"eslint": "7.15.0",
+		"eslint-plugin-unicorn": "^23.0.0",
 		"nyc": "15.1.0",
 		"source-map-support": "0.5.19",
 		"ts-node": "9.1.0",
 		"typescript": "4.1.2"
 	},
-	"license": "Apache 2.0"
+	"license": "Apache 2.0",
+	"dependencies": {
+		"@pizzafox/benchmark": "^1.1.0",
+		"@pizzafox/util": "^1.1.1",
+		"pretty-ms": "^7.0.1"
+	}
 }
