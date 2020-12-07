@@ -6,11 +6,11 @@ const capacities = {
 } as const;
 
 export function partOne(positions: Positions): number {
-  return positions.reduce<number>((highestSeatID, [ rowPosition, columnPosition ]) => {
-    const { seatID } = generateBoardingPass(rowPosition, columnPosition);
-
-    return seatID > highestSeatID ? seatID : highestSeatID;
+  const seatIDs = positions.map(([ rowPosition, columnPosition ]) => {
+    return generateBoardingPass(rowPosition, columnPosition).seatID;
   }, 0);
+
+  return Math.max(...seatIDs);
 }
 
 type Positions = [string, string][];

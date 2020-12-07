@@ -34,7 +34,7 @@ export function parse(inputs: string): PasswordDetails {
     .map(input => {
       const [ lowerBound, higherBound, policyLetter, password ] = PASSWORD_REGEX.exec(input)!.slice(1);
 
-      return [ parseInt(lowerBound, 10), parseInt(higherBound, 10), policyLetter, password ];
+      return [ Number.parseInt(lowerBound, 10), Number.parseInt(higherBound, 10), policyLetter, password ];
     });
 }
 

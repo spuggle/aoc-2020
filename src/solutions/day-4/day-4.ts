@@ -42,7 +42,6 @@ export function partTwo(passports: PassportDetails[]): number {
   }).length;
 }
 
-
 function getComparerForRange(lowerBound: number, higherBound: number): FieldValidator {
   return (input: string) => {
     const value = Number(input);
@@ -57,15 +56,11 @@ function getValidatorForPattern(pattern: RegExp): FieldValidator {
 
 export function parse(input: string): PassportDetails[] {
   return input.split("\n\n")
-    .map(passportString => passportString.split(passportDetailSeparator)
-      .reduce<PassportDetails>((passports, passportDetails) => {
-      const [ field, value ] = passportDetails.split(":");
-
-      passports[field as keyof PassportDetails] = value;
-
-      return passports;
-    }, {})
-    );
+    .map(passportString => Object.fromEntries(
+      passportString
+        .split(passportDetailSeparator)
+        .map(passportDetails => passportDetails.split(":") as [ keyof PassportDetails, string ])
+    ));
 }
 
 export type PassportDetails = {

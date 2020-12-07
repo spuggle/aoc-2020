@@ -30,5 +30,5 @@ function getProductOfSumTo(totalValue: number, inputNumbers: number[]): number |
 export function parse(input: string) {
   return input
     .split("\n")
-    .map(num => Number(num));
+    .map(number => Number(number));
 }

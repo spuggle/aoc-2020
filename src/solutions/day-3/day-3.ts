@@ -1,4 +1,5 @@
 export function partOne(areaMap: AreaMap): number {
+  // eslint-disable-next-line unicorn/no-reduce
   return areaMap.reduce<number>((treesEncountered, currentRow, rowNumber) => {
     const columnNumber = (rowNumber * 3) % currentRow.length;
     const hasEncounteredTree = currentRow[columnNumber] === "#";
@@ -18,6 +19,7 @@ export function partTwo(areaMap: AreaMap): number {
     [ 1, 2 ]
   ] as Slope[])
     .map(slope => treesEncounteredInSlope(slope, areaMap))
+    // eslint-disable-next-line unicorn/no-reduce
     .reduce<number>((product, treesEncountered) => product * treesEncountered, 1);
 }
 
