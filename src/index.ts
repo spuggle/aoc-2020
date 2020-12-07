@@ -1,78 +1,34 @@
-import { readdirSync, readFileSync } from "fs";
-import * as path from "path";
-import { Benchmark } from "./util/Benchmark.js";
-
-const solutionDays = readdirSync(getAbsolutePath("./solutions/"));
+import { readFileSync } from "fs";
+import { getAbsolutePath, getSolutions, Solutions } from "./util/loadSolutions";
 
 void runAllSolutions();
 
 export async function runAllSolutions() {
-  const solutionOutputs: SolutionOutputs = {};
-  const optimizationOutputs: SolutionOutputs = {};
+  const solutionOutputEntries = (await getSolutions())
+    .map(([ solutionDay, { parse, ...problemSolutions } ]) => {
+      const solutions = Object.entries(problemSolutions)
+        .filter(([ solutionName ]) => solutionName.startsWith("part")) as Solutions;
 
-  for (const solutionDay of solutionDays) {
-    const [
-      { parse, ...problemSolutions },
-      optimizedMethods
-    ] = await Promise.all([
-      import(getAbsolutePath(`./solutions/${solutionDay}/${solutionDay}.js`)) as Promise<SolutionMethods>,
-      import(getAbsolutePath(`./solutions/${solutionDay}/${solutionDay}-optimized.js`))
-        .catch(() => ({})) as Promise<OptimizedMethods>
-    ]);
+      if (!parse || !solutions.length) throw new Error(`Functions for ${solutionDay} not implemented properly!`);
 
-    const [ solutions, optimizations ] = [ problemSolutions, optimizedMethods ]
-      .map(methods => Object.entries(methods)
-        .filter(([ solutionName ]) => solutionName.startsWith("part")) as [ "partOne" | "partTwo", ProblemFunction ][]
-      );
+      const rawSolutionInput = readFileSync(getAbsolutePath(`../inputs/${solutionDay}.txt`)).toString("utf8");
+      const solutionInput = parse(rawSolutionInput);
 
-    if (!parse || !solutions.length) throw new Error(`Functions for ${solutionDay} not implemented properly!`);
+      return [ solutionDay, getSolutionOutputs(solutions, solutionInput) ];
+    });
 
-    const rawSolutionInput = readFileSync(getAbsolutePath(`../inputs/${solutionDay}.txt`)).toString("utf8");
-    const solutionInput = parse(rawSolutionInput);
-
-    solutionOutputs[solutionDay] = getSolutionOutputs(solutions, solutionInput);
-    if (optimizations.length) optimizationOutputs[solutionDay] = getSolutionOutputs(optimizations, solutionInput);
-  }
-
-  console.table(solutionOutputs);
-  console.table(optimizationOutputs);
+  console.table(Object.fromEntries(solutionOutputEntries));
 }
 
-function getSolutionOutputs(solutions: ["partOne" | "partTwo", ProblemFunction][], solutionInput: unknown[]) {
+function getSolutionOutputs(solutions: Solutions, solutionInput: (string | unknown)[]) {
   return Object.fromEntries(
     solutions
-      .map(([ solutionName, solution ]) => {
-        const solutionBenchmark = new Benchmark();
-
-        solutionBenchmark.start();
-        const answer = solution(solutionInput);
-        solutionBenchmark.stop();
-
-        return [ solutionName, `${answer.toString()} @ ${solutionBenchmark.display()}` ];
-      })
-  );
+      .map(([ solutionName, solution ]) => [ solutionName, solution(solutionInput) ])
+  ) as SolutionOutputs[string];
 }
 
-function getAbsolutePath(relativePath: string) {
-  return path.join(__dirname, relativePath);
-}
-
-interface SolutionOutputs {
+type SolutionOutputs = {
   [K: string]: {
-    [K: string]: PartOutput;
+    [K in "partOne" | "partTwo"]: number;
   };
-}
-
-type ProblemFunction<T = unknown> = (...args: T[]) => unknown[];
-
-interface SolutionMethods<T = unknown> {
-  readonly partOne?: ProblemFunction<T>;
-  readonly partTwo?: ProblemFunction<T>;
-  readonly parse?: (input: string) => T[];
-}
-
-interface OptimizedMethods<T = unknown> {
-  readonly [K: string]: ProblemFunction<T>;
-}
-
-type PartOutput = string;
+};
