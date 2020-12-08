@@ -4,7 +4,7 @@ dependencies:
   pretty-ms: 7.0.1
 devDependencies:
   '@ava/typescript': 1.1.1
-  '@istanbuljs/nyc-config-typescript': 1.0.1_eba5b3c07efef0636bffdb3ccbf063c6
+  '@istanbuljs/nyc-config-typescript': 1.0.1_54ff021100066de973a25237d69b5a96
   '@types/node': 14.14.10
   '@typescript-eslint/eslint-plugin': 4.9.0_e74d2a7d9c6f761fcb488002f3c93903
   '@typescript-eslint/parser': 4.9.0_eslint@7.15.0+typescript@4.1.2
@@ -13,7 +13,7 @@ devDependencies:
   eslint-plugin-unicorn: 23.0.0_eslint@7.15.0
   nyc: 15.1.0
   source-map-support: 0.5.19
-  ts-node: 9.1.0_typescript@4.1.2
+  ts-node: 9.1.1_typescript@4.1.2
   typescript: 4.1.2
 lockfileVersion: 5.2
 packages:
@@ -223,12 +223,12 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ==
-  /@istanbuljs/nyc-config-typescript/1.0.1_eba5b3c07efef0636bffdb3ccbf063c6:
+  /@istanbuljs/nyc-config-typescript/1.0.1_54ff021100066de973a25237d69b5a96:
     dependencies:
       '@istanbuljs/schema': 0.1.2
       nyc: 15.1.0
       source-map-support: 0.5.19
-      ts-node: 9.1.0_typescript@4.1.2
+      ts-node: 9.1.1_typescript@4.1.2
     dev: true
     engines:
       node: '>=8'
@@ -3025,7 +3025,7 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-n5up2e+odkw4dpi8v+sshI8RrbM=
-  /ts-node/9.1.0_typescript@4.1.2:
+  /ts-node/9.1.1_typescript@4.1.2:
     dependencies:
       arg: 4.1.3
       create-require: 1.1.1
@@ -3041,7 +3041,7 @@ packages:
     peerDependencies:
       typescript: '>=2.7'
     resolution:
-      integrity: sha512-0yqcL4sgruCvM+w64LiAfNJo6+lHfCYc5Ajj4yiLNkJ9oZ2HWaa+Kso7htYOOxVQ7+csAjdUjffOe9PIqC4pMg==
+      integrity: sha512-hPlt7ZACERQGf03M253ytLY3dHbGNGrAq9qIHWUY9XHYl1z7wYngSr3OQ5xmui8o2AaxsONxIzjafLUiWBo1Fg==
   /tslib/1.14.1:
     dev: true
     resolution:
@@ -3314,5 +3314,5 @@ specifiers:
   nyc: 15.1.0
   pretty-ms: ^7.0.1
   source-map-support: 0.5.19
-  ts-node: 9.1.0
+  ts-node: 9.1.1
   typescript: 4.1.2
