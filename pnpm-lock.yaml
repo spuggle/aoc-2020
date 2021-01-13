@@ -10,7 +10,7 @@ devDependencies:
   '@typescript-eslint/parser': 4.9.1_eslint@7.15.0+typescript@4.1.3
   ava: 3.14.0
   eslint: 7.15.0
-  eslint-plugin-unicorn: 23.0.0_eslint@7.15.0
+  eslint-plugin-unicorn: 26.0.1_eslint@7.15.0
   nyc: 15.1.0
   source-map-support: 0.5.19
   ts-node: 9.1.1_typescript@4.1.3
@@ -1185,15 +1185,15 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-otzzTim2/1+lVrlH19EfQQJEhVJSu0zOb9ygb3iapN6UlyaDtyRq4b5U1FuW0v1lRa9Fp/GJyHkSwm6NqABgCA==
-  /eslint-plugin-unicorn/23.0.0_eslint@7.15.0:
+  /eslint-plugin-unicorn/26.0.1_eslint@7.15.0:
     dependencies:
       ci-info: 2.0.0
       clean-regexp: 1.0.0
       eslint: 7.15.0
       eslint-ast-utils: 1.1.0
-      eslint-template-visitor: 2.2.1_eslint@7.15.0
+      eslint-template-visitor: 2.2.2_eslint@7.15.0
       eslint-utils: 2.1.0
-      import-modules: 2.0.0
+      import-modules: 2.1.0
       lodash: 4.17.20
       pluralize: 8.0.0
       read-pkg-up: 7.0.1
@@ -1205,9 +1205,9 @@ packages:
     engines:
       node: '>=10'
     peerDependencies:
-      eslint: '>=7.11.0'
+      eslint: '>=7.17.0'
     resolution:
-      integrity: sha512-Vabo3cjl6cjyhcf+76CdQEY6suOFzK0Xh3xo0uL9VDYrDJP5+B6PjV0tHTYm82WZmFWniugFJM3ywHSNYTi/ZQ==
+      integrity: sha512-SWgF9sIVY74zqkkSN2dclSCqRfocWSUGD0haC0NX2oRfmdp9p8dQvJYkYSQePaCyssPUE/pqpsIEEZNTh8crUA==
   /eslint-scope/5.1.1:
     dependencies:
       esrecurse: 4.3.0
@@ -1217,18 +1217,18 @@ packages:
       node: '>=8.0.0'
     resolution:
       integrity: sha512-2NxwbF/hZ0KpepYN0cNbo+FN6XoK7GaHlQhgx/hIZl6Va0bF45RQOOwhLIy8lQDbuCiadSLCBnH2CFYquit5bw==
-  /eslint-template-visitor/2.2.1_eslint@7.15.0:
+  /eslint-template-visitor/2.2.2_eslint@7.15.0:
     dependencies:
       babel-eslint: 10.1.0_eslint@7.15.0
       eslint: 7.15.0
-      eslint-visitor-keys: 1.3.0
+      eslint-visitor-keys: 2.0.0
       esquery: 1.3.1
       multimap: 1.1.0
     dev: true
     peerDependencies:
       eslint: '>=7.0.0'
     resolution:
-      integrity: sha512-q3SxoBXz0XjPGkUpwGVAwIwIPIxzCAJX1uwfVc8tW3v7u/zS7WXNH3I2Mu2MDz2NgSITAyKLRaQFPHu/iyKxDQ==
+      integrity: sha512-SkcLjzKw3JjKTWHacRDeLBa2gxb600zbCKTkXj/V97QnZ9yxkknoPL8vc8PFueqbFXP7mYNTQzjCjcMpTRdRaA==
   /eslint-utils/2.1.0:
     dependencies:
       eslint-visitor-keys: 1.3.0
@@ -1678,12 +1678,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-vjL3+w0oulAVZ0hBHnxa/Nm5TAurf9YLQJDhqRZyqb+VKGOB6LU8t9H1Nr5CIo16vh9XfJTOoHwU0B71S557gA==
-  /import-modules/2.0.0:
+  /import-modules/2.1.0:
     dev: true
     engines:
       node: '>=8'
     resolution:
-      integrity: sha512-iczM/v9drffdNnABOKwj0f9G3cFDon99VcG1mxeBsdqnbd+vnQ5c2uAiCHNQITqFTOPaEvwg3VjoWCur0uHLEw==
+      integrity: sha512-8HEWcnkbGpovH9yInoisxaSoIg9Brbul+Ju3Kqe2UsYDUBJD/iQjSgEj0zPcTDPKfPp2fs5xlv1i+JSye/m1/A==
   /imurmurhash/0.1.4:
     dev: true
     engines:
@@ -3310,7 +3310,7 @@ specifiers:
   '@typescript-eslint/parser': 4.9.1
   ava: 3.14.0
   eslint: 7.15.0
-  eslint-plugin-unicorn: 23.0.0
+  eslint-plugin-unicorn: 26.0.1
   nyc: 15.1.0
   pretty-ms: 7.0.1
   source-map-support: 0.5.19
