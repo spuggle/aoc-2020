@@ -31,7 +31,7 @@
 		"@typescript-eslint/parser": "4.9.1",
 		"ava": "3.14.0",
 		"eslint": "7.15.0",
-		"eslint-plugin-unicorn": "23.0.0",
+		"eslint-plugin-unicorn": "28.0.0",
 		"nyc": "15.1.0",
 		"source-map-support": "0.5.19",
 		"ts-node": "9.1.1",
