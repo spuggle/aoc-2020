@@ -1,6 +1,6 @@
 dependencies:
   '@pizzafox/benchmark': 1.1.0
-  '@pizzafox/util': 1.1.1
+  '@pizzafox/util': 2.5.0
   pretty-ms: 7.0.1
 devDependencies:
   '@ava/typescript': 1.1.1
@@ -274,12 +274,12 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-3m2w/bVq0O8ioYfp0hkul8/eTbgxenOoxrjIgsSXo7ERFuQM7zCxQD3RrS51rLoDhM5Av5pZbHoZyE6TOEddqA==
-  /@pizzafox/util/1.1.1:
+  /@pizzafox/util/2.5.0:
     dev: false
     engines:
       node: '>=10'
     resolution:
-      integrity: sha512-yLoaB12Ms9kC4E7pUhcTzDb84lLk1MEkX0UPe7T/CKdbEKa5Fp2aeykjzlpVLIP9yrFz04Q53g+NMHj7kttJFg==
+      integrity: sha512-/+khJMo1X2AcnSwXfdJQXXE8xGqtMf0E7x3P3gygFZoNHLkThcDYX1RhBVqPDnlh5awDI1/jjxP1NpkEbIG3xQ==
   /@sindresorhus/is/0.14.0:
     dev: true
     engines:
@@ -3304,7 +3304,7 @@ specifiers:
   '@ava/typescript': 1.1.1
   '@istanbuljs/nyc-config-typescript': 1.0.1
   '@pizzafox/benchmark': 1.1.0
-  '@pizzafox/util': 1.1.1
+  '@pizzafox/util': 2.5.0
   '@types/node': 14.14.13
   '@typescript-eslint/eslint-plugin': 4.9.1
   '@typescript-eslint/parser': 4.9.1
